@@ -76,6 +76,9 @@
     <hc.stylecheck.version>1</hc.stylecheck.version>
     <rxjava.version>2.2.7</rxjava.version>
     <api.comparison.version>5.0</api.comparison.version>
+    <checkstyle.plugin.version>3.1.1</checkstyle.plugin.version>
+    <checkstyle.version>8.33</checkstyle.version>
+    <nohttp.version>0.0.5.RELEASE</nohttp.version>
   </properties>
 
   <dependencyManagement>
@@ -232,6 +235,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.plugin.version}</version>
         <executions>
           <execution>
             <id>validate-main</id>
@@ -267,7 +271,35 @@
               <goal>checkstyle</goal>
             </goals>
           </execution>
+          <execution>
+            <id>validate-nohttp</id>
+            <phase>validate</phase>
+            <configuration>
+              <configLocation>nohttp-checkstyle.xml</configLocation>
+              <suppressionsLocation>nohttp-suppressions.xml</suppressionsLocation>
+              <encoding>UTF-8</encoding>
+              <sourceDirectories>${basedir}</sourceDirectories>
+              <includes>**/*</includes>
+              <excludes>nohttp-suppressions.xml,**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class</excludes>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <inherited>false</inherited>
+          </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.spring.nohttp</groupId>
+            <artifactId>nohttp-checkstyle</artifactId>
+            <version>${nohttp.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

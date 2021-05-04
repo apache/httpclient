@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   ====================================================================
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
+   ====================================================================
+
+   This software consists of voluntary contributions made by many
+   individuals on behalf of the Apache Software Foundation.  For more
+   information on the Apache Software Foundation, please see
+   <http://www.apache.org />.
+ -->
+<!DOCTYPE suppressions PUBLIC "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN" "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<suppressions>
+  <suppress message="http://app.mydomain.fr" checks="NoHttp"/>
+  <suppress message="http://bugs.sun.com" checks="NoHttp"/>
+  <suppress message="http://code.google.com/p/memcached/wiki/NewStart" checks="NoHttp"/>
+  <suppress message="http://code.google.com/p/spymemcached/" checks="NoHttp"/>
+  <suppress message="http://davenport.sourceforge.net/ntlm.html" checks="NoHttp"/>
+  <suppress message="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html" checks="NoHttp"/>
+  <suppress message="http://dustin.github.com/java-memcached-client/apidocs/net/spy/memcached/KetamaConnectionFactory.html" checks="NoHttp"/>
+  <suppress message="http://ehcache.org" checks="NoHttp"/>
+  <suppress message="http://ehcache.org/documentation/index.html" checks="NoHttp"/>
+  <suppress message="http://en.wikipedia.org/wiki/SHA-2" checks="NoHttp"/>
+  <suppress message="http://example.com/" checks="NoHttp"/>
+  <suppress message="http://hc.apache.org/" checks="NoHttp"/>
+  <suppress message="http://hc.apache.org/httpcomponents-client/" checks="NoHttp"/>
+  <suppress message="http://hc.apache.org/httpcomponents-client-ga/" checks="NoHttp"/>
+  <suppress message="http://hc.apache.org/httpcomponents-core-ga/" checks="NoHttp"/>
+  <suppress message="http://hc.apache.org/status.html" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/basic-auth/user/passwd" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/cookies" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/digest-auth/auth/user/passwd" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/get" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/hidden-basic-auth/user/passwd" checks="NoHttp"/>
+  <suppress message="http://httpbin.org/post" checks="NoHttp"/>
+  <suppress message="http://httpcomponents.apache.org" checks="NoHttp"/>
+  <suppress message="http://httpcomponents.apache.org/downloads.cgi" checks="NoHttp"/>
+  <suppress message="http://httpcomponents.apache.org/mail-lists.html" checks="NoHttp"/>
+  <suppress message="http://httpd.apache.org/docs/2.4/" checks="NoHttp"/>
+  <suppress message="http://httpd.apache.org/docs/2.4/mod/core.html" checks="NoHttp"/>
+  <suppress message="http://httpd.apache.org/docs/2.4/mod/directives.html" checks="NoHttp"/>
+  <suppress message="http://httpd.apache.org/docs/2.4/mod/mod_ssl.html" checks="NoHttp"/>
+  <suppress message="http://issues.apache.org/jira/browse/HTTPCLIENT" checks="NoHttp"/>
+  <suppress message="http://jcifs.samba.org" checks="NoHttp"/>
+  <suppress message="http://maven.apache.org/maven-v4_0_0.xsd" checks="NoHttp"/>
+  <suppress message="http://maven.apache.org/run-maven/index.html" checks="NoHttp"/>
+  <suppress message="http://memcached.org/" checks="NoHttp"/>
+  <suppress message="http://mozilla.org/MPL/2.0/" checks="NoHttp"/>
+  <suppress message="http://msdn.microsoft.com/en-us/library/cc236650%28v=prot.20%29.aspx" checks="NoHttp"/>
+  <suppress message="http://msdn.microsoft.com/en-us/library/windows/desktop/aa375506" checks="NoHttp"/>
+  <suppress message="http://nghttp2.org/httpbin/post" checks="NoHttp"/>
+  <suppress message="http://projects.apache.org/category/http" checks="NoHttp"/>
+  <suppress message="http://projects.apache.org/category/library" checks="NoHttp"/>
+  <suppress message="http://projects.apache.org/category/network-client" checks="NoHttp"/>
+  <suppress message="http://projects.apache.org/ns/asfext" checks="NoHttp"/>
+  <suppress message="http://publicsuffix.org/" checks="NoHttp"/>
+  <suppress message="http://svn.apache.org/repos/asf/httpcomponents/site" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc1945" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc2817" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc2818" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc5861" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc6265" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc7230" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc7231" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc7235" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc7540" checks="NoHttp"/>
+  <suppress message="http://tools.ietf.org/html/rfc7541" checks="NoHttp"/>
+  <suppress message="http://usefulinc.com/doap/licenses/asl20" checks="NoHttp"/>
+  <suppress message="http://usefulinc.com/ns/doap" checks="NoHttp"/>
+  <suppress message="http://www.apache.org" checks="NoHttp"/>
+  <suppress message="http://www.apache.org/licenses/" checks="NoHttp"/>
+  <suppress message="http://www.apache.org/licenses/LICENSE-2.0" checks="NoHttp"/>
+  <suppress message="http://www.apple.com/" checks="NoHttp"/>
+  <suppress message="http://www.chromium.org/developers/design-documents/http-authentication" checks="NoHttp"/>
+  <suppress message="http://www.comcast.net:80/" checks="NoHttp"/>
+  <suppress message="http://www.comcast.net:8080/" checks="NoHttp"/>
+  <suppress message="http://www.comcast.net:80/?foo=bar" checks="NoHttp"/>
+  <suppress message="http://www.cs.umd.edu/~harry/jotp/src/md.java" checks="NoHttp"/>
+  <suppress message="http://www.domain.dom/ca-crl.pem" checks="NoHttp"/>
+  <suppress message="http://www.fancast.com:80/full_episodes" checks="NoHttp"/>
+  <suppress message="http://www.fancast.com:80/full_episodes?foo=bar" checks="NoHttp"/>
+  <suppress message="http://www.fancast.com:9999/full_episodes" checks="NoHttp"/>
+  <suppress message="http://www.google.com/" checks="NoHttp"/>
+  <suppress message="http://www.ietf.org/rfc/rfc2145.txt" checks="NoHttp"/>
+  <suppress message="http://www.ietf.org/rfc/rfc4492.txt" checks="NoHttp"/>
+  <suppress message="http://www.reactive-streams.org/" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html" checks="NoHttp"/>
+  <suppress message="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" checks="NoHttp"/>
+  <suppress message="http://www.wassenaar.org/" checks="NoHttp"/>
+  <suppress message="http://www.yahoo.com/" checks="NoHttp"/>
+  <suppress message="http://xmlns.com/foaf/0.1/" checks="NoHttp"/>
+</suppressions>
