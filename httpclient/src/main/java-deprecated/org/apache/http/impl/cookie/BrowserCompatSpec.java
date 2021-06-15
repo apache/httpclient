@@ -85,18 +85,18 @@ public class BrowserCompatSpec extends CookieSpecBase {
 
     /** Default constructor */
     public BrowserCompatSpec(final String[] datepatterns, final BrowserCompatSpecFactory.SecurityLevel securityLevel) {
-        super(new BrowserCompatVersionAttributeHandler(),
-                new BasicDomainHandler(),
+        super(BrowserCompatVersionAttributeHandler.INSTANCE,
+                BasicDomainHandler.INSTANCE,
                 securityLevel == BrowserCompatSpecFactory.SecurityLevel.SECURITYLEVEL_IE_MEDIUM ?
                         new BasicPathHandler() {
                             @Override
                             public void validate(final Cookie cookie, final CookieOrigin origin) throws MalformedCookieException {
                                 // No validation
                             }
-                        } : new BasicPathHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
-                new BasicCommentHandler(),
+                        } : BasicPathHandler.INSTANCE,
+                        BasicMaxAgeHandler.INSTANCE,
+                        BasicSecureHandler.INSTANCE,
+                BasicCommentHandler.INSTANCE,
                 new BasicExpiresHandler(datepatterns != null ? datepatterns.clone() : DEFAULT_DATE_PATTERNS));
     }
 

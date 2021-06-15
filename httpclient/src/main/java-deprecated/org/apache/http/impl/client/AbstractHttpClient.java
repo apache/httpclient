@@ -304,19 +304,19 @@ public abstract class AbstractHttpClient extends CloseableHttpClient {
         final AuthSchemeRegistry registry = new AuthSchemeRegistry();
         registry.register(
                 AuthPolicy.BASIC,
-                new BasicSchemeFactory());
+                BasicSchemeFactory.DEFAULT);
         registry.register(
                 AuthPolicy.DIGEST,
-                new DigestSchemeFactory());
+                DigestSchemeFactory.DEFAULT);
         registry.register(
                 AuthPolicy.NTLM,
-                new NTLMSchemeFactory());
+                NTLMSchemeFactory.INSTANCE);
         registry.register(
                 AuthPolicy.SPNEGO,
-                new SPNegoSchemeFactory());
+                SPNegoSchemeFactory.DEFAULT);
         registry.register(
                 AuthPolicy.KERBEROS,
-                new KerberosSchemeFactory());
+                KerberosSchemeFactory.DEFAULT);
         return registry;
     }
 

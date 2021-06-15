@@ -70,26 +70,26 @@ public class DefaultCookieSpec implements CookieSpec {
             final String[] datepatterns,
             final boolean oneHeader) {
         this.strict = new RFC2965Spec(oneHeader,
-                new RFC2965VersionAttributeHandler(),
-                new BasicPathHandler(),
-                new RFC2965DomainAttributeHandler(),
-                new RFC2965PortAttributeHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
-                new BasicCommentHandler(),
-                new RFC2965CommentUrlAttributeHandler(),
-                new RFC2965DiscardAttributeHandler());
+                RFC2965VersionAttributeHandler.INSTANCE,
+                BasicPathHandler.INSTANCE,
+                RFC2965DomainAttributeHandler.INSTANCE,
+                RFC2965PortAttributeHandler.INSTANCE,
+                BasicMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
+                BasicCommentHandler.INSTANCE,
+                RFC2965CommentUrlAttributeHandler.INSTANCE,
+                RFC2965DiscardAttributeHandler.INSTANCE);
         this.obsoleteStrict = new RFC2109Spec(oneHeader,
-                new RFC2109VersionHandler(),
-                new BasicPathHandler(),
-                new RFC2109DomainHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
+                RFC2109VersionHandler.INSTANCE,
+                BasicPathHandler.INSTANCE,
+                RFC2109DomainHandler.INSTANCE,
+                BasicMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
                 new BasicCommentHandler());
         this.netscapeDraft = new NetscapeDraftSpec(
-                new BasicDomainHandler(),
-                new BasicPathHandler(),
-                new BasicSecureHandler(),
+                BasicDomainHandler.INSTANCE,
+                BasicPathHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
                 new BasicCommentHandler(),
                 new BasicExpiresHandler(
                         datepatterns != null ? datepatterns.clone() : new String[]{NetscapeDraftSpec.EXPIRES_PATTERN}));

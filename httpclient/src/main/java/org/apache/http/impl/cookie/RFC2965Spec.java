@@ -71,7 +71,7 @@ public class RFC2965Spec extends RFC2109Spec {
 
     public RFC2965Spec(final String[] datepatterns, final boolean oneHeader) {
         super(oneHeader,
-                new RFC2965VersionAttributeHandler(),
+                RFC2965VersionAttributeHandler.INSTANCE,
                 new BasicPathHandler() {
 
                     @Override
@@ -85,15 +85,15 @@ public class RFC2965Spec extends RFC2109Spec {
                     }
 
                 },
-                new RFC2965DomainAttributeHandler(),
-                new RFC2965PortAttributeHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
-                new BasicCommentHandler(),
+                RFC2965DomainAttributeHandler.INSTANCE,
+                RFC2965PortAttributeHandler.INSTANCE,
+                BasicMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
+                BasicCommentHandler.INSTANCE,
                 new BasicExpiresHandler(
                         datepatterns != null ? datepatterns.clone() : DATE_PATTERNS),
-                new RFC2965CommentUrlAttributeHandler(),
-                new RFC2965DiscardAttributeHandler());
+                RFC2965CommentUrlAttributeHandler.INSTANCE,
+                RFC2965DiscardAttributeHandler.INSTANCE);
     }
 
     RFC2965Spec(final boolean oneHeader,

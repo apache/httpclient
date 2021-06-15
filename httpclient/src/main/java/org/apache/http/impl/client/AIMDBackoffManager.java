@@ -72,7 +72,7 @@ public class AIMDBackoffManager implements BackoffManager {
      *   be managed
      */
     public AIMDBackoffManager(final ConnPoolControl<HttpRoute> connPerRoute) {
-        this(connPerRoute, new SystemClock());
+        this(connPerRoute, SystemClock.INSTANCE);
     }
 
     AIMDBackoffManager(final ConnPoolControl<HttpRoute> connPerRoute, final Clock clock) {

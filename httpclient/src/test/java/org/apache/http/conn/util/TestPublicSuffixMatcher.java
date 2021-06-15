@@ -49,7 +49,7 @@ public class TestPublicSuffixMatcher {
         final ClassLoader classLoader = getClass().getClassLoader();
         final InputStream in = classLoader.getResourceAsStream(SOURCE_FILE);
         Assert.assertNotNull(in);
-        final List<PublicSuffixList> lists = new PublicSuffixListParser().parseByType(
+        final List<PublicSuffixList> lists = PublicSuffixListParser.INSTANCE.parseByType(
                 new InputStreamReader(in, UTF_8));
         matcher = new PublicSuffixMatcher(lists);
     }

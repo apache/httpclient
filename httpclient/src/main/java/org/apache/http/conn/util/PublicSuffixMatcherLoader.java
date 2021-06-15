@@ -51,7 +51,7 @@ import org.apache.http.util.Args;
 public final class PublicSuffixMatcherLoader {
 
     private static PublicSuffixMatcher load(final InputStream in) throws IOException {
-        final List<PublicSuffixList> lists = new PublicSuffixListParser().parseByType(
+        final List<PublicSuffixList> lists = PublicSuffixListParser.INSTANCE.parseByType(
                 new InputStreamReader(in, Consts.UTF_8));
         return new PublicSuffixMatcher(lists);
     }

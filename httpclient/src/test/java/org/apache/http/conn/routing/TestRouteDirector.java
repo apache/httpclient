@@ -81,7 +81,7 @@ public class TestRouteDirector {
 
     @Test(expected=IllegalArgumentException.class)
     public void testIllegal() {
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route = new HttpRoute(TARGET1);
         rowdy.nextStep(null, route);
     }
@@ -89,7 +89,7 @@ public class TestRouteDirector {
     @Test
     public void testDirect() {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1   = new HttpRoute(TARGET1);
         final HttpRoute route2   = new HttpRoute(TARGET2);
         final HttpRoute route1p1 = new HttpRoute(TARGET1, null, PROXY1, false);
@@ -122,7 +122,7 @@ public class TestRouteDirector {
     @Test
     public void testProxy() {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1p1 = new HttpRoute(TARGET1, null, PROXY1, false);
         final HttpRoute route1p2 = new HttpRoute(TARGET1, null, PROXY2, false);
         final HttpRoute route2p1 = new HttpRoute(TARGET2, null, PROXY1, false);
@@ -172,7 +172,7 @@ public class TestRouteDirector {
         final HttpHost[] chainB = { PROXY1, PROXY2 };
         final HttpHost[] chainC = { PROXY2, PROXY1 };
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1cA  = new HttpRoute(TARGET1, null, chainA, false,
                                             TunnelType.PLAIN, LayerType.PLAIN);
         final HttpRoute route1cB  = new HttpRoute(TARGET1, null, chainB, false,
@@ -224,7 +224,7 @@ public class TestRouteDirector {
     @Test
     public void testLocalDirect() {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1l41 = new HttpRoute(TARGET1, LOCAL41, false);
         final HttpRoute route1l42 = new HttpRoute(TARGET1, LOCAL42, false);
         final HttpRoute route1l61 = new HttpRoute(TARGET1, LOCAL61, false);
@@ -292,7 +292,7 @@ public class TestRouteDirector {
     @Test
     public void testDirectSecure() {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1u   = new HttpRoute(TARGET1, null, false);
         final HttpRoute route1s   = new HttpRoute(TARGET1, null, true);
         final HttpRoute route1p1u = new HttpRoute(TARGET1, null, PROXY1, false);
@@ -330,7 +330,7 @@ public class TestRouteDirector {
     @Test
     public void testProxyTLS() {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         final HttpRoute route1    = new HttpRoute
             (TARGET1, null, PROXY1, false,
              TunnelType.PLAIN, LayerType.PLAIN);

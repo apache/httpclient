@@ -207,19 +207,19 @@ public class DefaultHttpClient extends AbstractHttpClient {
     @Override
     protected BasicHttpProcessor createHttpProcessor() {
         final BasicHttpProcessor httpproc = new BasicHttpProcessor();
-        httpproc.addInterceptor(new RequestDefaultHeaders());
+        httpproc.addInterceptor(RequestDefaultHeaders.DEFAULT);
         // Required protocol interceptors
         httpproc.addInterceptor(new RequestContent());
         httpproc.addInterceptor(new RequestTargetHost());
         // Recommended protocol interceptors
-        httpproc.addInterceptor(new RequestClientConnControl());
+        httpproc.addInterceptor(RequestClientConnControl.INSTANCE);
         httpproc.addInterceptor(new RequestUserAgent());
         httpproc.addInterceptor(new RequestExpectContinue());
         // HTTP state management interceptors
-        httpproc.addInterceptor(new RequestAddCookies());
-        httpproc.addInterceptor(new ResponseProcessCookies());
+        httpproc.addInterceptor(RequestAddCookies.INSTANCE);
+        httpproc.addInterceptor(ResponseProcessCookies.INSTANCE);
         // HTTP authentication interceptors
-        httpproc.addInterceptor(new RequestAuthCache());
+        httpproc.addInterceptor(RequestAuthCache.INSTANCE);
         httpproc.addInterceptor(new RequestTargetAuthentication());
         httpproc.addInterceptor(new RequestProxyAuthentication());
         return httpproc;

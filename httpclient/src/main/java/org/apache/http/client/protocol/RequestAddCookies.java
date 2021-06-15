@@ -67,6 +67,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RequestAddCookies implements HttpRequestInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RequestAddCookies INSTANCE = new RequestAddCookies();
+
     private final Log log = LogFactory.getLog(getClass());
 
     public RequestAddCookies() {

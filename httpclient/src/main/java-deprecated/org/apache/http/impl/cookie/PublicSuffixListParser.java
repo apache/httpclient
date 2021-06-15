@@ -50,7 +50,7 @@ public class PublicSuffixListParser {
 
     PublicSuffixListParser(final PublicSuffixFilter filter) {
         this.filter = filter;
-        this.parser = new org.apache.http.conn.util.PublicSuffixListParser();
+        this.parser = org.apache.http.conn.util.PublicSuffixListParser.INSTANCE;
     }
 
     /**

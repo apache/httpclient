@@ -74,13 +74,13 @@ public class RFC2109SpecProvider implements CookieSpecProvider {
             synchronized (this) {
                 if (cookieSpec == null) {
                     this.cookieSpec = new RFC2109Spec(this.oneHeader,
-                            new RFC2109VersionHandler(),
-                            new BasicPathHandler(),
+                            RFC2109VersionHandler.INSTANCE,
+                            BasicPathHandler.INSTANCE,
                             PublicSuffixDomainFilter.decorate(
-                                    new RFC2109DomainHandler(), this.publicSuffixMatcher),
-                            new BasicMaxAgeHandler(),
-                            new BasicSecureHandler(),
-                            new BasicCommentHandler());
+                                    RFC2109DomainHandler.INSTANCE, this.publicSuffixMatcher),
+                            BasicMaxAgeHandler.INSTANCE,
+                            BasicSecureHandler.INSTANCE,
+                            BasicCommentHandler.INSTANCE);
                 }
             }
         }

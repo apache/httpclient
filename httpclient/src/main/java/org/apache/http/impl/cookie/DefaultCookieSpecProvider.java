@@ -91,27 +91,27 @@ public class DefaultCookieSpecProvider implements CookieSpecProvider {
             synchronized (this) {
                 if (cookieSpec == null) {
                     final RFC2965Spec strict = new RFC2965Spec(this.oneHeader,
-                            new RFC2965VersionAttributeHandler(),
-                            new BasicPathHandler(),
+                            RFC2965VersionAttributeHandler.INSTANCE,
+                            BasicPathHandler.INSTANCE,
                             PublicSuffixDomainFilter.decorate(
-                                    new RFC2965DomainAttributeHandler(), this.publicSuffixMatcher),
-                            new RFC2965PortAttributeHandler(),
-                            new BasicMaxAgeHandler(),
-                            new BasicSecureHandler(),
-                            new BasicCommentHandler(),
-                            new RFC2965CommentUrlAttributeHandler(),
-                            new RFC2965DiscardAttributeHandler());
+                                    RFC2965DomainAttributeHandler.INSTANCE, this.publicSuffixMatcher),
+                            RFC2965PortAttributeHandler.INSTANCE,
+                            BasicMaxAgeHandler.INSTANCE,
+                            BasicSecureHandler.INSTANCE,
+                            BasicCommentHandler.INSTANCE,
+                            RFC2965CommentUrlAttributeHandler.INSTANCE,
+                            RFC2965DiscardAttributeHandler.INSTANCE);
                     final RFC2109Spec obsoleteStrict = new RFC2109Spec(this.oneHeader,
-                            new RFC2109VersionHandler(),
-                            new BasicPathHandler(),
+                            RFC2109VersionHandler.INSTANCE,
+                            BasicPathHandler.INSTANCE,
                             PublicSuffixDomainFilter.decorate(
-                                    new RFC2109DomainHandler(), this.publicSuffixMatcher),
-                            new BasicMaxAgeHandler(),
-                            new BasicSecureHandler(),
+                                    RFC2109DomainHandler.INSTANCE, this.publicSuffixMatcher),
+                            BasicMaxAgeHandler.INSTANCE,
+                            BasicSecureHandler.INSTANCE,
                             new BasicCommentHandler());
                     final NetscapeDraftSpec netscapeDraft = new NetscapeDraftSpec(
                             PublicSuffixDomainFilter.decorate(
-                                    new BasicDomainHandler(), this.publicSuffixMatcher),
+                                    BasicDomainHandler.INSTANCE, this.publicSuffixMatcher),
                             this.compatibilityLevel == CompatibilityLevel.IE_MEDIUM_SECURITY ?
                                     new BasicPathHandler() {
                                         @Override
@@ -120,8 +120,8 @@ public class DefaultCookieSpecProvider implements CookieSpecProvider {
                                                 final CookieOrigin origin) throws MalformedCookieException {
                                             // No validation
                                         }
-                                    } : new BasicPathHandler(),
-                            new BasicSecureHandler(),
+                                    } : BasicPathHandler.INSTANCE,
+                                    BasicSecureHandler.INSTANCE,
                             new BasicCommentHandler(),
                             new BasicExpiresHandler(this.datepatterns != null ? this.datepatterns.clone() :
                                     new String[]{NetscapeDraftSpec.EXPIRES_PATTERN}));

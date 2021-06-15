@@ -58,6 +58,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RequestAuthCache implements HttpRequestInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RequestAuthCache INSTANCE = new RequestAuthCache();
+
     private final Log log = LogFactory.getLog(getClass());
 
     public RequestAuthCache() {

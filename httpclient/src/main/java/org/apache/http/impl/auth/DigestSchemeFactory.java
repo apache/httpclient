@@ -47,6 +47,13 @@ import org.apache.http.protocol.HttpContext;
 @SuppressWarnings("deprecation")
 public class DigestSchemeFactory implements AuthSchemeFactory, AuthSchemeProvider {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final DigestSchemeFactory DEFAULT = new DigestSchemeFactory();
+
     private final Charset charset;
 
     /**

@@ -44,6 +44,13 @@ import org.apache.http.annotation.ThreadingBehavior;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class CookieIdentityComparator implements Serializable, Comparator<Cookie> {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final CookieIdentityComparator INSTANCE = new CookieIdentityComparator();
+
     private static final long serialVersionUID = 4466565437490631532L;
 
     @Override

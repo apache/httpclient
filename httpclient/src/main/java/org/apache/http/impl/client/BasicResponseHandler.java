@@ -53,6 +53,13 @@ import org.apache.http.util.EntityUtils;
 public class BasicResponseHandler extends AbstractResponseHandler<String> {
 
     /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicResponseHandler INSTANCE = new BasicResponseHandler();
+
+    /**
      * Returns the entity as a body as a String.
      */
     @Override

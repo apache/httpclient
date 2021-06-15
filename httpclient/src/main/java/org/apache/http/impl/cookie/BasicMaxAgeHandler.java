@@ -43,6 +43,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class BasicMaxAgeHandler extends AbstractCookieAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicMaxAgeHandler INSTANCE = new BasicMaxAgeHandler();
+
     public BasicMaxAgeHandler() {
         super();
     }

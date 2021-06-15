@@ -58,6 +58,13 @@ import org.apache.http.protocol.HttpContext;
 @Contract(threading = ThreadingBehavior.IMMUTABLE_CONDITIONAL)
 public class ResponseContentEncoding implements HttpResponseInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final ResponseContentEncoding DEFAULT = new ResponseContentEncoding();
+
     public static final String UNCOMPRESSED = "http.client.response.uncompressed";
 
     private final Lookup<InputStreamFactory> decoderRegistry;

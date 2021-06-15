@@ -82,11 +82,11 @@ public class RFC6265CookieSpecProvider implements CookieSpecProvider {
                     switch (this.compatibilityLevel) {
                         case STRICT:
                             this.cookieSpec = new RFC6265StrictSpec(
-                                    new BasicPathHandler(),
+                                    BasicPathHandler.INSTANCE,
                                     PublicSuffixDomainFilter.decorate(
-                                            new BasicDomainHandler(), this.publicSuffixMatcher),
-                                    new BasicMaxAgeHandler(),
-                                    new BasicSecureHandler(),
+                                            BasicDomainHandler.INSTANCE, this.publicSuffixMatcher),
+                                    BasicMaxAgeHandler.INSTANCE,
+                                    BasicSecureHandler.INSTANCE,
                                     new BasicExpiresHandler(RFC6265StrictSpec.DATE_PATTERNS));
                             break;
                         case IE_MEDIUM_SECURITY:
@@ -101,18 +101,18 @@ public class RFC6265CookieSpecProvider implements CookieSpecProvider {
                                     },
                                     PublicSuffixDomainFilter.decorate(
                                             new BasicDomainHandler(), this.publicSuffixMatcher),
-                                    new BasicMaxAgeHandler(),
-                                    new BasicSecureHandler(),
+                                    BasicMaxAgeHandler.INSTANCE,
+                                    BasicSecureHandler.INSTANCE,
                                     new BasicExpiresHandler(RFC6265StrictSpec.DATE_PATTERNS));
                             break;
                         default:
                             this.cookieSpec = new RFC6265LaxSpec(
-                                    new BasicPathHandler(),
+                                    BasicPathHandler.INSTANCE,
                                     PublicSuffixDomainFilter.decorate(
                                             new BasicDomainHandler(), this.publicSuffixMatcher),
-                                    new LaxMaxAgeHandler(),
-                                    new BasicSecureHandler(),
-                                    new LaxExpiresHandler());
+                                    LaxMaxAgeHandler.INSTANCE,
+                                    BasicSecureHandler.INSTANCE,
+                                    LaxExpiresHandler.INSTANCE);
                     }
                 }
             }

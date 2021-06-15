@@ -46,7 +46,7 @@ public class TestPublicSuffixListParser {
         Assert.assertNotNull(in);
         final PublicSuffixList suffixList;
         try {
-            final PublicSuffixListParser parser = new PublicSuffixListParser();
+            final PublicSuffixListParser parser = PublicSuffixListParser.INSTANCE;
             suffixList = parser.parse(new InputStreamReader(in, Consts.UTF_8));
         } finally {
             in.close();
@@ -63,7 +63,7 @@ public class TestPublicSuffixListParser {
         Assert.assertNotNull(in);
         final List<PublicSuffixList> suffixLists;
         try {
-            final PublicSuffixListParser parser = new PublicSuffixListParser();
+            final PublicSuffixListParser parser = PublicSuffixListParser.INSTANCE;
             suffixLists = parser.parseByType(new InputStreamReader(in, Consts.UTF_8));
         } finally {
             in.close();

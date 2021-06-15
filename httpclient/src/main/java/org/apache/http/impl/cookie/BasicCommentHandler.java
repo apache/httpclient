@@ -41,6 +41,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class BasicCommentHandler extends AbstractCookieAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicCommentHandler INSTANCE = new BasicCommentHandler();
+
     public BasicCommentHandler() {
         super();
     }

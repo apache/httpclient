@@ -49,6 +49,13 @@ import org.apache.http.protocol.HttpContext;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RequestAcceptEncoding implements HttpRequestInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RequestAcceptEncoding DEFAULT = new RequestAcceptEncoding();
+
     private final String acceptEncoding;
 
     /**

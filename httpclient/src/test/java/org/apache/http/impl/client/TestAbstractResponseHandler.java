@@ -78,7 +78,7 @@ public class TestAbstractResponseHandler {
         Mockito.when(response.getStatusLine()).thenReturn(sl);
         Mockito.when(response.getEntity()).thenReturn(entity);
 
-        final BasicResponseHandler handler = new BasicResponseHandler();
+        final BasicResponseHandler handler = BasicResponseHandler.INSTANCE;
         try {
             handler.handleResponse(response);
             Assert.fail("HttpResponseException expected");
@@ -103,7 +103,7 @@ public class TestAbstractResponseHandler {
         Mockito.when(response.getStatusLine()).thenReturn(sl);
         Mockito.when(response.getEntity()).thenReturn(entity);
 
-        final BasicResponseHandler handler = new BasicResponseHandler();
+        final BasicResponseHandler handler = BasicResponseHandler.INSTANCE;
         try {
             handler.handleResponse(response);
             Assert.fail("HttpResponseException expected");

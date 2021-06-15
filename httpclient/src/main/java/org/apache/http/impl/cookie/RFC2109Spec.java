@@ -71,7 +71,7 @@ public class RFC2109Spec extends CookieSpecBase {
 
     /** Default constructor */
     public RFC2109Spec(final String[] datepatterns, final boolean oneHeader) {
-        super(new RFC2109VersionHandler(),
+        super(RFC2109VersionHandler.INSTANCE,
                 new BasicPathHandler() {
 
                     @Override
@@ -85,10 +85,10 @@ public class RFC2109Spec extends CookieSpecBase {
                     }
 
                 },
-                new RFC2109DomainHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
-                new BasicCommentHandler(),
+                RFC2109DomainHandler.INSTANCE,
+                BasicMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
+                BasicCommentHandler.INSTANCE,
                 new BasicExpiresHandler(
                         datepatterns != null ? datepatterns.clone() : DATE_PATTERNS));
         this.oneHeader = oneHeader;

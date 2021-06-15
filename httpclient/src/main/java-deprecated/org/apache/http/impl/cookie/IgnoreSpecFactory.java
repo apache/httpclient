@@ -52,12 +52,12 @@ public class IgnoreSpecFactory implements CookieSpecFactory, CookieSpecProvider 
 
     @Override
     public CookieSpec newInstance(final HttpParams params) {
-        return new IgnoreSpec();
+        return IgnoreSpec.INSTANCE;
     }
 
     @Override
     public CookieSpec create(final HttpContext context) {
-        return new IgnoreSpec();
+        return IgnoreSpec.INSTANCE;
     }
 
 }

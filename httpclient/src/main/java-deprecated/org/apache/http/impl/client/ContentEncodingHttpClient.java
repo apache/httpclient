@@ -85,8 +85,8 @@ public class ContentEncodingHttpClient extends DefaultHttpClient {
     protected BasicHttpProcessor createHttpProcessor() {
         final BasicHttpProcessor result = super.createHttpProcessor();
 
-        result.addRequestInterceptor(new RequestAcceptEncoding());
-        result.addResponseInterceptor(new ResponseContentEncoding());
+        result.addRequestInterceptor(RequestAcceptEncoding.DEFAULT);
+        result.addResponseInterceptor(ResponseContentEncoding.DEFAULT);
 
         return result;
     }

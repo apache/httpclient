@@ -100,7 +100,7 @@ public class TestHostnameVerifier {
            Java isn't extracting international subjectAlts properly.  (Or
            OpenSSL isn't storing them properly).
         */
-        // DEFAULT.verify("\u82b1\u5b50.co.jp", x509 );
+        // INSTANCE.verify("\u82b1\u5b50.co.jp", x509 );
         // STRICT.verify("\u82b1\u5b50.co.jp", x509 );
         exceptionPlease(DEFAULT, "a.\u82b1\u5b50.co.jp", x509);
         exceptionPlease(STRICT, "a.\u82b1\u5b50.co.jp", x509);

@@ -57,6 +57,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class ResponseProcessCookies implements HttpResponseInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final ResponseProcessCookies INSTANCE = new ResponseProcessCookies();
+
     private final Log log = LogFactory.getLog(getClass());
 
     public ResponseProcessCookies() {

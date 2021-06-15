@@ -47,6 +47,13 @@ import org.apache.http.util.Args;
 public class BrowserCompatVersionAttributeHandler extends
         AbstractCookieAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BrowserCompatVersionAttributeHandler INSTANCE = new BrowserCompatVersionAttributeHandler();
+
     public BrowserCompatVersionAttributeHandler() {
         super();
     }

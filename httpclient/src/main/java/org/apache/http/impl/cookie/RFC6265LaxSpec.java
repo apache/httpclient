@@ -43,11 +43,11 @@ import org.apache.http.cookie.CommonCookieAttributeHandler;
 public class RFC6265LaxSpec extends RFC6265CookieSpecBase {
 
     public RFC6265LaxSpec() {
-        super(new BasicPathHandler(),
-                new BasicDomainHandler(),
-                new LaxMaxAgeHandler(),
-                new BasicSecureHandler(),
-                new LaxExpiresHandler());
+        super(BasicPathHandler.INSTANCE,
+                BasicDomainHandler.INSTANCE,
+                LaxMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
+                LaxExpiresHandler.INSTANCE);
     }
 
     RFC6265LaxSpec(final CommonCookieAttributeHandler... handlers) {

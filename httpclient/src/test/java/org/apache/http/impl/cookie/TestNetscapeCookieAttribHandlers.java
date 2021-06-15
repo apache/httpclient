@@ -39,7 +39,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainValidate1() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("somehost", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain("somehost");
         h.validate(cookie, origin);
@@ -57,7 +57,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainValidate2() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("www.somedomain.com", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain(".somedomain.com");
         h.validate(cookie, origin);
@@ -82,7 +82,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainValidate3() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("www.a.com", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain(".a.com");
         h.validate(cookie, origin);
@@ -100,7 +100,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainValidate4() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("www.a.b.c", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain(".a.b.c");
         h.validate(cookie, origin);
@@ -118,7 +118,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainMatch1() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("www.somedomain.com", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain(null);
         Assert.assertFalse(h.match(cookie, origin));
@@ -131,7 +131,7 @@ public class TestNetscapeCookieAttribHandlers {
     public void testNetscapeDomainMatch2() throws Exception {
         final BasicClientCookie cookie = new BasicClientCookie("name", "value");
         final CookieOrigin origin = new CookieOrigin("www.whatever.somedomain.com", 80, "/", false);
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
 
         cookie.setDomain(".somedomain.com");
         Assert.assertTrue(h.match(cookie, origin));
@@ -139,7 +139,7 @@ public class TestNetscapeCookieAttribHandlers {
 
     @Test
     public void testNetscapeDomainInvalidInput() throws Exception {
-        final CookieAttributeHandler h = new NetscapeDomainHandler();
+        final CookieAttributeHandler h = NetscapeDomainHandler.INSTANCE;
         try {
             h.match(null, null);
             Assert.fail("IllegalArgumentException must have been thrown");

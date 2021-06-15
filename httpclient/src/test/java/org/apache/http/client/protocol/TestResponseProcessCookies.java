@@ -59,14 +59,14 @@ public class TestResponseProcessCookies {
     @Test(expected=IllegalArgumentException.class)
     public void testResponseParameterCheck() throws Exception {
         final HttpClientContext context = HttpClientContext.create();
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(null, context);
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void testContextParameterCheck() throws Exception {
         final HttpResponse response = new BasicHttpResponse(HttpVersion.HTTP_1_1, 200, "OK");
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, null);
     }
 
@@ -80,7 +80,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -104,7 +104,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -122,7 +122,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, null);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -140,7 +140,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, null);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -159,7 +159,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -183,7 +183,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();
@@ -201,7 +201,7 @@ public class TestResponseProcessCookies {
         context.setAttribute(HttpClientContext.COOKIE_SPEC, this.cookieSpec);
         context.setAttribute(HttpClientContext.COOKIE_STORE, this.cookieStore);
 
-        final HttpResponseInterceptor interceptor = new ResponseProcessCookies();
+        final HttpResponseInterceptor interceptor = ResponseProcessCookies.INSTANCE;
         interceptor.process(response, context);
 
         final List<Cookie> cookies = this.cookieStore.getCookies();

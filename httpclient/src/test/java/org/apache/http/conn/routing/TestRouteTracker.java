@@ -292,7 +292,7 @@ public class TestRouteTracker {
     @Test
     public void testDirectRoutes() {
 
-        final HttpRouteDirector rd = new BasicRouteDirector();
+        final HttpRouteDirector rd = BasicRouteDirector.INSTANCE;
         HttpRoute r = new HttpRoute(TARGET1, LOCAL41, false);
         RouteTracker rt = new RouteTracker(r);
         boolean complete = checkVia(rt, r, rd, 2);
@@ -307,7 +307,7 @@ public class TestRouteTracker {
     @Test
     public void testProxyRoutes() {
 
-        final HttpRouteDirector rd = new BasicRouteDirector();
+        final HttpRouteDirector rd = BasicRouteDirector.INSTANCE;
         HttpRoute r = new HttpRoute(TARGET2, null, PROXY1, false);
         RouteTracker rt = new RouteTracker(r);
         boolean complete = checkVia(rt, r, rd, 2);
@@ -337,7 +337,7 @@ public class TestRouteTracker {
     @Test
     public void testProxyChainRoutes() {
 
-        final HttpRouteDirector rd = new BasicRouteDirector();
+        final HttpRouteDirector rd = BasicRouteDirector.INSTANCE;
         HttpHost[] proxies = { PROXY1, PROXY2 };
         HttpRoute r = new HttpRoute(TARGET2, LOCAL42, proxies, false,
                                     TunnelType.PLAIN, LayerType.PLAIN);

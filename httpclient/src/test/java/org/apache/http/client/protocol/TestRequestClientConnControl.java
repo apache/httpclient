@@ -43,7 +43,7 @@ public class TestRequestClientConnControl {
     @Test(expected=IllegalArgumentException.class)
     public void testRequestParameterCheck() throws Exception {
         final HttpClientContext context = HttpClientContext.create();
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(null, context);
     }
 
@@ -52,7 +52,7 @@ public class TestRequestClientConnControl {
         final HttpRequest request = new BasicHttpRequest("CONNECT", "www.somedomain.com");
         final HttpClientContext context = HttpClientContext.create();
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
         final Header header1 = request.getFirstHeader("Proxy-Connection");
         Assert.assertNotNull(header1);
@@ -71,7 +71,7 @@ public class TestRequestClientConnControl {
 
         context.setAttribute(HttpClientContext.HTTP_ROUTE, route);
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
 
         final Header header1 = request.getFirstHeader(HTTP.CONN_DIRECTIVE);
@@ -93,7 +93,7 @@ public class TestRequestClientConnControl {
 
         context.setAttribute(HttpClientContext.HTTP_ROUTE, route);
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
 
         final Header header1 = request.getFirstHeader(HTTP.CONN_DIRECTIVE);
@@ -115,7 +115,7 @@ public class TestRequestClientConnControl {
 
         context.setAttribute(HttpClientContext.HTTP_ROUTE, route);
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
 
         final Header header1 = request.getFirstHeader("Proxy-Connection");
@@ -138,7 +138,7 @@ public class TestRequestClientConnControl {
 
         context.setAttribute(HttpClientContext.HTTP_ROUTE, route);
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
 
         final Header header1 = request.getFirstHeader(HTTP.CONN_DIRECTIVE);
@@ -161,7 +161,7 @@ public class TestRequestClientConnControl {
 
         context.setAttribute(HttpClientContext.HTTP_ROUTE, route);
 
-        final HttpRequestInterceptor interceptor = new RequestClientConnControl();
+        final HttpRequestInterceptor interceptor = RequestClientConnControl.INSTANCE;
         interceptor.process(request, context);
 
         final Header header1 = request.getFirstHeader("Proxy-Connection");

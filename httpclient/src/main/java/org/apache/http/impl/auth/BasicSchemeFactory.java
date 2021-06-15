@@ -47,6 +47,13 @@ import org.apache.http.protocol.HttpContext;
 @SuppressWarnings("deprecation")
 public class BasicSchemeFactory implements AuthSchemeFactory, AuthSchemeProvider {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicSchemeFactory DEFAULT = new BasicSchemeFactory();
+
     private final Charset charset;
 
     /**

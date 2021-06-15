@@ -44,6 +44,13 @@ import org.apache.http.annotation.ThreadingBehavior;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public final class PublicSuffixListParser {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final PublicSuffixListParser INSTANCE = new PublicSuffixListParser();
+
     public PublicSuffixListParser() {
     }
 

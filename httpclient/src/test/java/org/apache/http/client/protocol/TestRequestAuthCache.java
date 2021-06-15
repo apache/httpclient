@@ -87,14 +87,14 @@ public class TestRequestAuthCache {
     @Test(expected=IllegalArgumentException.class)
     public void testRequestParameterCheck() throws Exception {
         final HttpClientContext context = HttpClientContext.create();
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(null, context);
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void testContextParameterCheck() throws Exception {
         final HttpRequest request = new BasicHttpRequest("GET", "/");
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, null);
     }
 
@@ -115,7 +115,7 @@ public class TestRequestAuthCache {
 
         context.setAttribute(HttpClientContext.AUTH_CACHE, authCache);
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNotNull(this.targetState.getAuthScheme());
         Assert.assertSame(this.creds1, this.targetState.getCredentials());
@@ -140,7 +140,7 @@ public class TestRequestAuthCache {
 
         context.setAttribute(HttpClientContext.AUTH_CACHE, authCache);
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNull(this.targetState.getAuthScheme());
         Assert.assertNull(this.targetState.getCredentials());
@@ -160,7 +160,7 @@ public class TestRequestAuthCache {
         context.setAttribute(HttpClientContext.PROXY_AUTH_STATE, this.proxyState);
         context.setAttribute(HttpClientContext.AUTH_CACHE, null);
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNull(this.targetState.getAuthScheme());
         Assert.assertNull(this.targetState.getCredentials());
@@ -182,7 +182,7 @@ public class TestRequestAuthCache {
         final AuthCache authCache = new BasicAuthCache();
         context.setAttribute(HttpClientContext.AUTH_CACHE, authCache);
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNull(this.targetState.getAuthScheme());
         Assert.assertNull(this.targetState.getCredentials());
@@ -209,7 +209,7 @@ public class TestRequestAuthCache {
 
         context.setAttribute(HttpClientContext.AUTH_CACHE, authCache);
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNull(this.targetState.getAuthScheme());
         Assert.assertNull(this.targetState.getCredentials());
@@ -239,7 +239,7 @@ public class TestRequestAuthCache {
         this.proxyState.setState(AuthProtocolState.CHALLENGED);
         this.proxyState.update(new BasicScheme(), new UsernamePasswordCredentials("user4", "secret4"));
 
-        final HttpRequestInterceptor interceptor = new RequestAuthCache();
+        final HttpRequestInterceptor interceptor = RequestAuthCache.INSTANCE;
         interceptor.process(request, context);
         Assert.assertNotSame(this.authscheme1, this.targetState.getAuthScheme());
         Assert.assertNotSame(this.creds1, this.targetState.getCredentials());

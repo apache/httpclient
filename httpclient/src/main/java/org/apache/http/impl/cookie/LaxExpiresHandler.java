@@ -52,6 +52,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class LaxExpiresHandler extends AbstractCookieAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final LaxExpiresHandler INSTANCE = new LaxExpiresHandler();
+
     static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 
     private static final BitSet DELIMS;

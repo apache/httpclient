@@ -59,7 +59,7 @@ public class BasicCookieStore implements CookieStore, Serializable {
 
     public BasicCookieStore() {
         super();
-        this.cookies = new TreeSet<Cookie>(new CookieIdentityComparator());
+        this.cookies = new TreeSet<Cookie>(CookieIdentityComparator.INSTANCE);
         this.lock = new ReentrantReadWriteLock();
     }
 

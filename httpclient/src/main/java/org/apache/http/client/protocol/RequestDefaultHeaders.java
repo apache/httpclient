@@ -49,6 +49,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE_CONDITIONAL)
 public class RequestDefaultHeaders implements HttpRequestInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RequestDefaultHeaders DEFAULT = new RequestDefaultHeaders();
+
     private final Collection<? extends Header> defaultHeaders;
 
     /**

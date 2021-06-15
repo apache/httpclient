@@ -47,6 +47,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RFC2965VersionAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RFC2965VersionAttributeHandler INSTANCE = new RFC2965VersionAttributeHandler();
+
     public RFC2965VersionAttributeHandler() {
         super();
     }

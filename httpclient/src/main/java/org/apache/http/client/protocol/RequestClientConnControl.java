@@ -51,6 +51,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RequestClientConnControl implements HttpRequestInterceptor {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RequestClientConnControl INSTANCE = new RequestClientConnControl();
+
     private final Log log = LogFactory.getLog(getClass());
 
     private static final String PROXY_CONN_DIRECTIVE = "Proxy-Connection";

@@ -45,6 +45,13 @@ import org.apache.http.cookie.MalformedCookieException;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class IgnoreSpec extends CookieSpecBase {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final IgnoreSpec INSTANCE = new IgnoreSpec();
+
     @Override
     public int getVersion() {
         return 0;

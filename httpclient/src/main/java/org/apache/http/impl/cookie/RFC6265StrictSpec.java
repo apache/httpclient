@@ -49,10 +49,10 @@ public class RFC6265StrictSpec extends RFC6265CookieSpecBase {
     };
 
     public RFC6265StrictSpec() {
-        super(new BasicPathHandler(),
-                new BasicDomainHandler(),
-                new BasicMaxAgeHandler(),
-                new BasicSecureHandler(),
+        super(BasicPathHandler.INSTANCE,
+                BasicDomainHandler.INSTANCE,
+                BasicMaxAgeHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
                 new BasicExpiresHandler(DATE_PATTERNS));
     }
 

@@ -44,7 +44,7 @@ public class TestRequestDefaultHeaders {
     @Test(expected=IllegalArgumentException.class)
     public void testRequestParameterCheck() throws Exception {
         final HttpContext context = new BasicHttpContext();
-        final HttpRequestInterceptor interceptor = new RequestDefaultHeaders();
+        final HttpRequestInterceptor interceptor = RequestDefaultHeaders.DEFAULT;
         interceptor.process(null, context);
     }
 

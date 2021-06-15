@@ -772,7 +772,7 @@ public class DefaultRequestDirector implements RequestDirector {
     protected void establishRoute(final HttpRoute route, final HttpContext context)
         throws HttpException, IOException {
 
-        final HttpRouteDirector rowdy = new BasicRouteDirector();
+        final HttpRouteDirector rowdy = BasicRouteDirector.INSTANCE;
         int step;
         do {
             final HttpRoute fact = managedConn.getRoute();

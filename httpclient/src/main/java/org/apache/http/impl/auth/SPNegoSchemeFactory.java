@@ -44,6 +44,13 @@ import org.apache.http.protocol.HttpContext;
 @SuppressWarnings("deprecation")
 public class SPNegoSchemeFactory implements AuthSchemeFactory, AuthSchemeProvider {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final SPNegoSchemeFactory DEFAULT = new SPNegoSchemeFactory();
+
     private final boolean stripPort;
     private final boolean useCanonicalHostname;
 

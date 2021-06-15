@@ -107,17 +107,17 @@ public class ProxyClient {
         this.connectionConfig = connectionConfig != null ? connectionConfig : ConnectionConfig.DEFAULT;
         this.requestConfig = requestConfig != null ? requestConfig : RequestConfig.DEFAULT;
         this.httpProcessor = new ImmutableHttpProcessor(
-                new RequestTargetHost(), new RequestClientConnControl(), new RequestUserAgent());
+                new RequestTargetHost(), RequestClientConnControl.INSTANCE, new RequestUserAgent());
         this.requestExec = new HttpRequestExecutor();
         this.proxyAuthStrategy = new ProxyAuthenticationStrategy();
         this.authenticator = new HttpAuthenticator();
         this.proxyAuthState = new AuthState();
         this.authSchemeRegistry = new AuthSchemeRegistry();
-        this.authSchemeRegistry.register(AuthSchemes.BASIC, new BasicSchemeFactory());
-        this.authSchemeRegistry.register(AuthSchemes.DIGEST, new DigestSchemeFactory());
-        this.authSchemeRegistry.register(AuthSchemes.NTLM, new NTLMSchemeFactory());
-        this.authSchemeRegistry.register(AuthSchemes.SPNEGO, new SPNegoSchemeFactory());
-        this.authSchemeRegistry.register(AuthSchemes.KERBEROS, new KerberosSchemeFactory());
+        this.authSchemeRegistry.register(AuthSchemes.BASIC, BasicSchemeFactory.DEFAULT);
+        this.authSchemeRegistry.register(AuthSchemes.DIGEST, DigestSchemeFactory.DEFAULT);
+        this.authSchemeRegistry.register(AuthSchemes.NTLM, NTLMSchemeFactory.INSTANCE);
+        this.authSchemeRegistry.register(AuthSchemes.SPNEGO, SPNegoSchemeFactory.DEFAULT);
+        this.authSchemeRegistry.register(AuthSchemes.KERBEROS, KerberosSchemeFactory.DEFAULT);
         this.reuseStrategy = new DefaultConnectionReuseStrategy();
     }
 

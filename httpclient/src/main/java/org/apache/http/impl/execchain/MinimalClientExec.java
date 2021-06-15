@@ -104,7 +104,7 @@ public class MinimalClientExec implements ClientExecChain {
         this.httpProcessor = new ImmutableHttpProcessor(
                 new RequestContent(),
                 new RequestTargetHost(),
-                new RequestClientConnControl(),
+                RequestClientConnControl.INSTANCE,
                 new RequestUserAgent(VersionInfo.getUserAgent(
                         "Apache-HttpClient", "org.apache.http.client", getClass())));
         this.requestExecutor    = requestExecutor;

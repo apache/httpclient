@@ -33,6 +33,13 @@ package org.apache.http.impl.client;
  */
 class SystemClock implements Clock {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final SystemClock INSTANCE = new SystemClock();
+
     @Override
     public long getCurrentTime() {
         return System.currentTimeMillis();

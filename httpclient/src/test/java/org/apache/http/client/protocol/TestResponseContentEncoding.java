@@ -48,7 +48,7 @@ public class TestResponseContentEncoding {
         final HttpResponse response = new BasicHttpResponse(HttpVersion.HTTP_1_1, 200, "OK");
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNull(entity);
@@ -61,7 +61,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -76,7 +76,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -91,7 +91,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -106,7 +106,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -121,7 +121,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -136,7 +136,7 @@ public class TestResponseContentEncoding {
         response.setEntity(original);
         final HttpContext context = new BasicHttpContext();
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);
@@ -169,7 +169,7 @@ public class TestResponseContentEncoding {
         final HttpContext context = new BasicHttpContext();
         context.setAttribute(HttpClientContext.REQUEST_CONFIG, config);
 
-        final HttpResponseInterceptor interceptor = new ResponseContentEncoding();
+        final HttpResponseInterceptor interceptor = ResponseContentEncoding.DEFAULT;
         interceptor.process(response, context);
         final HttpEntity entity = response.getEntity();
         Assert.assertNotNull(entity);

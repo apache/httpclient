@@ -46,6 +46,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class LaxMaxAgeHandler extends AbstractCookieAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final LaxMaxAgeHandler INSTANCE = new LaxMaxAgeHandler();
+
     private final static Pattern MAX_AGE_PATTERN = Pattern.compile("^\\-?[0-9]+$");
 
     public LaxMaxAgeHandler() {

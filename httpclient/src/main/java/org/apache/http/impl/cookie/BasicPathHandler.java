@@ -44,6 +44,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class BasicPathHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicPathHandler INSTANCE = new BasicPathHandler();
+
     public BasicPathHandler() {
         super();
     }

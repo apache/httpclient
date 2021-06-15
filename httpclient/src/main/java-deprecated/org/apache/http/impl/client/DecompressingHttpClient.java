@@ -96,7 +96,7 @@ public class DecompressingHttpClient implements HttpClient {
      *   issuing requests
      */
     public DecompressingHttpClient(final HttpClient backend) {
-        this(backend, new RequestAcceptEncoding(), new ResponseContentEncoding());
+        this(backend, RequestAcceptEncoding.DEFAULT, ResponseContentEncoding.DEFAULT);
     }
 
     DecompressingHttpClient(final HttpClient backend,

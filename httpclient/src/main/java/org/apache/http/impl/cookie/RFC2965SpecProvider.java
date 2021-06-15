@@ -74,16 +74,16 @@ public class RFC2965SpecProvider implements CookieSpecProvider {
             synchronized (this) {
                 if (cookieSpec == null) {
                     this.cookieSpec = new RFC2965Spec(this.oneHeader,
-                            new RFC2965VersionAttributeHandler(),
-                            new BasicPathHandler(),
+                            RFC2965VersionAttributeHandler.INSTANCE,
+                            BasicPathHandler.INSTANCE,
                             PublicSuffixDomainFilter.decorate(
-                                    new RFC2965DomainAttributeHandler(), this.publicSuffixMatcher),
-                            new RFC2965PortAttributeHandler(),
-                            new BasicMaxAgeHandler(),
-                            new BasicSecureHandler(),
-                            new BasicCommentHandler(),
-                            new RFC2965CommentUrlAttributeHandler(),
-                            new RFC2965DiscardAttributeHandler());
+                                    RFC2965DomainAttributeHandler.INSTANCE, this.publicSuffixMatcher),
+                            RFC2965PortAttributeHandler.INSTANCE,
+                            BasicMaxAgeHandler.INSTANCE,
+                            BasicSecureHandler.INSTANCE,
+                            BasicCommentHandler.INSTANCE,
+                            RFC2965CommentUrlAttributeHandler.INSTANCE,
+                            RFC2965DiscardAttributeHandler.INSTANCE);
                 }
             }
         }

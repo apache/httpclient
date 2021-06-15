@@ -47,6 +47,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class NetscapeDomainHandler extends BasicDomainHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final NetscapeDomainHandler INSTANCE = new NetscapeDomainHandler();
+
     public NetscapeDomainHandler() {
         super();
     }

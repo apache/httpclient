@@ -129,7 +129,7 @@ public final class CookieSpecRegistry implements Lookup<CookieSpecProvider> {
      * Obtains a list containing the names of all registered {@link CookieSpec cookie
      * specs}.
      *
-     * Note that the DEFAULT policy (if present) is likely to be the same
+     * Note that the INSTANCE policy (if present) is likely to be the same
      * as one of the other policies, but does not have to be.
      *
      * @return list of registered cookie spec names

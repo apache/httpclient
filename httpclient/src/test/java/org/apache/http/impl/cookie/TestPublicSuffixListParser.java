@@ -51,13 +51,13 @@ public class TestPublicSuffixListParser {
         Assert.assertNotNull(in);
         final PublicSuffixList suffixList;
         try {
-            final org.apache.http.conn.util.PublicSuffixListParser parser = new org.apache.http.conn.util.PublicSuffixListParser();
+            final org.apache.http.conn.util.PublicSuffixListParser parser = org.apache.http.conn.util.PublicSuffixListParser.INSTANCE;
             suffixList = parser.parse(new InputStreamReader(in, Consts.UTF_8));
         } finally {
             in.close();
         }
         final PublicSuffixMatcher matcher = new PublicSuffixMatcher(suffixList.getRules(), suffixList.getExceptions());
-        this.filter = new PublicSuffixDomainFilter(new RFC2109DomainHandler(), matcher);
+        this.filter = new PublicSuffixDomainFilter(RFC2109DomainHandler.INSTANCE, matcher);
     }
 
     @Test

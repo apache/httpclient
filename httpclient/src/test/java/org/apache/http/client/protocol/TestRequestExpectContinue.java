@@ -50,7 +50,7 @@ public class TestRequestExpectContinue {
         final String s = "whatever";
         final StringEntity entity = new StringEntity(s, "US-ASCII");
         request.setEntity(entity);
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader(HTTP.EXPECT_DIRECTIVE);
         Assert.assertNotNull(header);
@@ -66,7 +66,7 @@ public class TestRequestExpectContinue {
         final String s = "whatever";
         final StringEntity entity = new StringEntity(s, "US-ASCII");
         request.setEntity(entity);
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader(HTTP.EXPECT_DIRECTIVE);
         Assert.assertNull(header);
@@ -82,7 +82,7 @@ public class TestRequestExpectContinue {
         final String s = "whatever";
         final StringEntity entity = new StringEntity(s, "US-ASCII");
         request.setEntity(entity);
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader(HTTP.EXPECT_DIRECTIVE);
         Assert.assertNull(header);
@@ -97,7 +97,7 @@ public class TestRequestExpectContinue {
         final String s = "";
         final StringEntity entity = new StringEntity(s, "US-ASCII");
         request.setEntity(entity);
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader(HTTP.EXPECT_DIRECTIVE);
         Assert.assertNull(header);
@@ -105,7 +105,7 @@ public class TestRequestExpectContinue {
 
     @Test
     public void testRequestExpectContinueInvalidInput() throws Exception {
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         try {
             interceptor.process(null, null);
             Assert.fail("IllegalArgumentException should have been thrown");
@@ -118,7 +118,7 @@ public class TestRequestExpectContinue {
     public void testRequestExpectContinueIgnoreNonenclosingRequests() throws Exception {
         final HttpContext context = new BasicHttpContext(null);
         final BasicHttpRequest request = new BasicHttpRequest("POST", "/");
-        final RequestExpectContinue interceptor = new RequestExpectContinue();
+        final RequestExpectContinue interceptor = RequestExpectContinue.INSTANCE;
         interceptor.process(request, context);
         Assert.assertEquals(0, request.getAllHeaders().length);
     }

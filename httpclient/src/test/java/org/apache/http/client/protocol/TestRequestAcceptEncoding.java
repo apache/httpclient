@@ -42,7 +42,7 @@ public class TestRequestAcceptEncoding {
         final HttpRequest request = new BasicHttpRequest("GET", "/");
         final HttpContext context = new BasicHttpContext();
 
-        final HttpRequestInterceptor interceptor = new RequestAcceptEncoding();
+        final HttpRequestInterceptor interceptor = RequestAcceptEncoding.DEFAULT;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader("Accept-Encoding");
         Assert.assertNotNull(header);
@@ -55,7 +55,7 @@ public class TestRequestAcceptEncoding {
         request.addHeader("Accept-Encoding", "stuff");
         final HttpContext context = new BasicHttpContext();
 
-        final HttpRequestInterceptor interceptor = new RequestAcceptEncoding();
+        final HttpRequestInterceptor interceptor = RequestAcceptEncoding.DEFAULT;
         interceptor.process(request, context);
         final Header header = request.getFirstHeader("Accept-Encoding");
         Assert.assertNotNull(header);

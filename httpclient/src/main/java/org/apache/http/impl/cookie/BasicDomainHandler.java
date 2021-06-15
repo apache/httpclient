@@ -48,6 +48,13 @@ import org.apache.http.util.TextUtils;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class BasicDomainHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final BasicDomainHandler INSTANCE = new BasicDomainHandler();
+
     public BasicDomainHandler() {
         super();
     }

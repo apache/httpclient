@@ -45,7 +45,14 @@ import org.apache.http.cookie.SetCookie2;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RFC2965DiscardAttributeHandler implements CommonCookieAttributeHandler {
 
-      public RFC2965DiscardAttributeHandler() {
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RFC2965DiscardAttributeHandler INSTANCE = new RFC2965DiscardAttributeHandler();
+
+    public RFC2965DiscardAttributeHandler() {
           super();
       }
 

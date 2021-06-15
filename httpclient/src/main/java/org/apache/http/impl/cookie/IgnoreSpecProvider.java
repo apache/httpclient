@@ -52,7 +52,7 @@ public class IgnoreSpecProvider implements CookieSpecProvider {
         if (cookieSpec == null) {
             synchronized (this) {
                 if (cookieSpec == null) {
-                    this.cookieSpec = new IgnoreSpec();
+                    this.cookieSpec = IgnoreSpec.INSTANCE;
                 }
             }
         }

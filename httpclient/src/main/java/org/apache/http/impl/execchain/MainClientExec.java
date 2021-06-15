@@ -122,7 +122,7 @@ public class MainClientExec implements ClientExecChain {
         Args.notNull(proxyAuthStrategy, "Proxy authentication strategy");
         Args.notNull(userTokenHandler, "User token handler");
         this.authenticator      = new HttpAuthenticator();
-        this.routeDirector      = new BasicRouteDirector();
+        this.routeDirector      = BasicRouteDirector.INSTANCE;
         this.requestExecutor    = requestExecutor;
         this.connManager        = connManager;
         this.reuseStrategy      = reuseStrategy;

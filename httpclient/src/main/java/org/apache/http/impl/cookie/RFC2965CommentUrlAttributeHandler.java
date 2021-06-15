@@ -45,7 +45,14 @@ import org.apache.http.cookie.SetCookie2;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RFC2965CommentUrlAttributeHandler implements CommonCookieAttributeHandler {
 
-      public RFC2965CommentUrlAttributeHandler() {
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RFC2965CommentUrlAttributeHandler INSTANCE = new RFC2965CommentUrlAttributeHandler();
+
+    public RFC2965CommentUrlAttributeHandler() {
           super();
       }
 

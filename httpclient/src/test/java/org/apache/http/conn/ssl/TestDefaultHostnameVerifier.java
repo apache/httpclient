@@ -69,7 +69,7 @@ public class TestDefaultHostnameVerifier {
         final ClassLoader classLoader = getClass().getClassLoader();
         final InputStream in = classLoader.getResourceAsStream(PUBLIC_SUFFIX_MATCHER_SOURCE_FILE);
         Assert.assertNotNull(in);
-        final List<PublicSuffixList> lists = new PublicSuffixListParser().parseByType(
+        final List<PublicSuffixList> lists = PublicSuffixListParser.INSTANCE.parseByType(
                 new InputStreamReader(in, UTF_8));
         publicSuffixMatcher = new PublicSuffixMatcher(lists);
 
@@ -111,7 +111,7 @@ public class TestDefaultHostnameVerifier {
            Java isn't extracting international subjectAlts properly.  (Or
            OpenSSL isn't storing them properly).
         */
-        // DEFAULT.verify("\u82b1\u5b50.co.jp", x509 );
+        // INSTANCE.verify("\u82b1\u5b50.co.jp", x509 );
         // impl.verify("\u82b1\u5b50.co.jp", x509 );
         exceptionPlease(impl, "a.\u82b1\u5b50.co.jp", x509);
 

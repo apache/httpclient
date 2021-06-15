@@ -1093,11 +1093,11 @@ public class HttpClientBuilder {
                     new RequestDefaultHeaders(defaultHeaders),
                     new RequestContent(),
                     new RequestTargetHost(),
-                    new RequestClientConnControl(),
+                    RequestClientConnControl.INSTANCE,
                     new RequestUserAgent(userAgentCopy),
-                    new RequestExpectContinue());
+                    RequestExpectContinue.INSTANCE);
             if (!cookieManagementDisabled) {
-                b.add(new RequestAddCookies());
+                b.add(RequestAddCookies.INSTANCE);
             }
             if (!contentCompressionDisabled) {
                 if (contentDecoderMap != null) {
@@ -1105,14 +1105,14 @@ public class HttpClientBuilder {
                     Collections.sort(encodings);
                     b.add(new RequestAcceptEncoding(encodings));
                 } else {
-                    b.add(new RequestAcceptEncoding());
+                    b.add(RequestAcceptEncoding.DEFAULT);
                 }
             }
             if (!authCachingDisabled) {
-                b.add(new RequestAuthCache());
+                b.add(RequestAuthCache.INSTANCE);
             }
             if (!cookieManagementDisabled) {
-                b.add(new ResponseProcessCookies());
+                b.add(ResponseProcessCookies.INSTANCE);
             }
             if (!contentCompressionDisabled) {
                 if (contentDecoderMap != null) {
@@ -1122,7 +1122,7 @@ public class HttpClientBuilder {
                     }
                     b.add(new ResponseContentEncoding(b2.build()));
                 } else {
-                    b.add(new ResponseContentEncoding());
+                    b.add(ResponseContentEncoding.DEFAULT);
                 }
             }
             if (requestLast != null) {
@@ -1189,11 +1189,11 @@ public class HttpClientBuilder {
         Lookup<AuthSchemeProvider> authSchemeRegistryCopy = this.authSchemeRegistry;
         if (authSchemeRegistryCopy == null) {
             authSchemeRegistryCopy = RegistryBuilder.<AuthSchemeProvider>create()
-                .register(AuthSchemes.BASIC, new BasicSchemeFactory())
-                .register(AuthSchemes.DIGEST, new DigestSchemeFactory())
-                .register(AuthSchemes.NTLM, new NTLMSchemeFactory())
-                .register(AuthSchemes.SPNEGO, new SPNegoSchemeFactory())
-                .register(AuthSchemes.KERBEROS, new KerberosSchemeFactory())
+                .register(AuthSchemes.BASIC, BasicSchemeFactory.DEFAULT)
+                .register(AuthSchemes.DIGEST, DigestSchemeFactory.DEFAULT)
+                .register(AuthSchemes.NTLM, NTLMSchemeFactory.INSTANCE)
+                .register(AuthSchemes.SPNEGO, SPNegoSchemeFactory.DEFAULT)
+                .register(AuthSchemes.KERBEROS, KerberosSchemeFactory.DEFAULT)
                 .build();
         }
         Lookup<CookieSpecProvider> cookieSpecRegistryCopy = this.cookieSpecRegistry;

@@ -178,8 +178,8 @@ public class TestAuthenticationStrategy {
         challenges.put("digest", new BasicHeader(AUTH.WWW_AUTH, "Digest realm=\"realm1\", nonce=\"1234\""));
 
         final Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT).build();
         context.setAuthSchemeRegistry(authSchemeRegistry);
 
         final Queue<AuthOption> options = authStrategy.select(challenges, authhost, response, context);
@@ -199,8 +199,8 @@ public class TestAuthenticationStrategy {
         challenges.put("digest", new BasicHeader(AUTH.WWW_AUTH, "Digest realm=\"realm2\", nonce=\"1234\""));
 
         final Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT).build();
         context.setAuthSchemeRegistry(authSchemeRegistry);
 
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
@@ -223,8 +223,8 @@ public class TestAuthenticationStrategy {
         challenges.put("digest", new BasicHeader(AUTH.WWW_AUTH, "Digest realm=\"realm2\", nonce=\"1234\""));
 
         final Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT).build();
         context.setAuthSchemeRegistry(authSchemeRegistry);
 
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
@@ -252,8 +252,8 @@ public class TestAuthenticationStrategy {
         challenges.put("whatever", new BasicHeader(AUTH.WWW_AUTH, "Whatever realm=\"realm3\""));
 
         final Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT).build();
         context.setAuthSchemeRegistry(authSchemeRegistry);
 
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
@@ -286,8 +286,8 @@ public class TestAuthenticationStrategy {
         challenges.put("digest", new BasicHeader(AUTH.WWW_AUTH, "Digest realm=\"realm2\", nonce=\"1234\""));
 
         final Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT).build();
         context.setAuthSchemeRegistry(authSchemeRegistry);
         context.setRequestConfig(config);
 

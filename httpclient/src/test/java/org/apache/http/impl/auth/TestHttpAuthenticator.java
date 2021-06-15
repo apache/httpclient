@@ -93,9 +93,9 @@ public class TestHttpAuthenticator {
         this.credentialsProvider.setCredentials(AuthScope.ANY, this.credentials);
         this.context.setAttribute(HttpClientContext.CREDS_PROVIDER, this.credentialsProvider);
         this.authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
-            .register("basic", new BasicSchemeFactory())
-            .register("digest", new DigestSchemeFactory())
-            .register("ntlm", new NTLMSchemeFactory()).build();
+            .register("basic", BasicSchemeFactory.DEFAULT)
+            .register("digest", DigestSchemeFactory.DEFAULT)
+            .register("ntlm", NTLMSchemeFactory.INSTANCE).build();
         this.context.setAttribute(HttpClientContext.AUTHSCHEME_REGISTRY, this.authSchemeRegistry);
         this.authCache = Mockito.mock(AuthCache.class);
         this.context.setAttribute(HttpClientContext.AUTH_CACHE, this.authCache);

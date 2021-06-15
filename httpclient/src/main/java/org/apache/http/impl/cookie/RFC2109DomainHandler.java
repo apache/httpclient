@@ -46,6 +46,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RFC2109DomainHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RFC2109DomainHandler INSTANCE = new RFC2109DomainHandler();
+
     public RFC2109DomainHandler() {
         super();
     }

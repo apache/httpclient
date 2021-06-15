@@ -65,10 +65,10 @@ public class NetscapeDraftSpec extends CookieSpecBase {
 
     /** Default constructor */
     public NetscapeDraftSpec(final String[] datepatterns) {
-        super(new BasicPathHandler(),
-                new NetscapeDomainHandler(),
-                new BasicSecureHandler(),
-                new BasicCommentHandler(),
+        super(BasicPathHandler.INSTANCE,
+                NetscapeDomainHandler.INSTANCE,
+                BasicSecureHandler.INSTANCE,
+                BasicCommentHandler.INSTANCE,
                 new BasicExpiresHandler(
                         datepatterns != null ? datepatterns.clone() : new String[]{EXPIRES_PATTERN}));
     }

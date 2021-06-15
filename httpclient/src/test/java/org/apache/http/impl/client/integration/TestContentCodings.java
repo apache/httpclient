@@ -251,7 +251,7 @@ public class TestContentCodings extends LocalServerTestBase {
         final HttpHost target = start();
 
         final HttpGet request = new HttpGet("/some-resource");
-        final String response = this.httpclient.execute(target, request, new BasicResponseHandler());
+        final String response = this.httpclient.execute(target, request, BasicResponseHandler.INSTANCE);
         Assert.assertEquals("The entity text is correctly transported", entityText, response);
     }
 
@@ -264,7 +264,7 @@ public class TestContentCodings extends LocalServerTestBase {
         final HttpHost target = start();
 
         final HttpGet request = new HttpGet("/some-resource");
-        final String response = this.httpclient.execute(target, request, new BasicResponseHandler());
+        final String response = this.httpclient.execute(target, request, BasicResponseHandler.INSTANCE);
         Assert.assertEquals("The entity text is correctly transported", entityText, response);
     }
 

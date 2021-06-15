@@ -38,7 +38,7 @@ public final class CookieSpecs {
      * The policy that provides high degree of compatibility
      * with common cookie management of popular HTTP agents.
      *
-     * @deprecated (4.4) use {link #DEFAULT}.
+     * @deprecated (4.4) use {link #INSTANCE}.
      */
     @Deprecated
     public static final String BROWSER_COMPATIBILITY = "compatibility";
@@ -63,7 +63,7 @@ public final class CookieSpecs {
     /**
      * The default 'best match' policy.
      *
-     * @deprecated (4.4) use {link #DEFAULT}.
+     * @deprecated (4.4) use {link #INSTANCE}.
      */
     @Deprecated
     public static final String BEST_MATCH = "best-match";

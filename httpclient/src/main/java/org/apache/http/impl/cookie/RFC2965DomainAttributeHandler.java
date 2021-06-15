@@ -49,6 +49,13 @@ import org.apache.http.util.Args;
 @Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class RFC2965DomainAttributeHandler implements CommonCookieAttributeHandler {
 
+    /**
+     * Singleton instance.
+     *
+     * @since 4.5.13
+     */
+    public static final RFC2965DomainAttributeHandler INSTANCE = new RFC2965DomainAttributeHandler();
+
     public RFC2965DomainAttributeHandler() {
         super();
     }
